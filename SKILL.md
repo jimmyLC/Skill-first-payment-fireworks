@@ -1,5 +1,5 @@
 ---
-name: first-payment-fireworks
+name: Skill-first-payment-fireworks
 description: >
   Add a fireworks animation (about 3 seconds) plus a congratulations dialog when a customer comes back to
   the site after their FIRST successful payment or subscription (e.g. "恭喜升級 Pro"). Use when the user asks for

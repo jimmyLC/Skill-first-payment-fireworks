@@ -6,10 +6,10 @@ About three seconds of fireworks and a "恭喜升級 Pro" dialog, shown **once**
 
 ## Use it with an AI assistant
 
-This repo is an AI skill (see [`SKILL.md`](./SKILL.md)). With Claude Code, clone it into your skills folder (the folder name must match the skill name):
+This repo is an AI skill (see [`SKILL.md`](./SKILL.md)). With Claude Code, clone it into your skills folder (the folder name should match the skill name):
 
 ```bash
-git clone https://github.com/jimmyLC/Skill-first-payment-fireworks ~/.claude/skills/first-payment-fireworks
+git clone https://github.com/jimmyLC/Skill-first-payment-fireworks ~/.claude/skills/Skill-first-payment-fireworks
 ```
 
 (or into a project's `.claude/skills/`) and ask: *"Add the first-payment fireworks to my checkout return page."* Other assistants can read `SKILL.md` directly; it contains the full integration steps, rules and checklist.
