@@ -1,0 +1,8 @@
+.congrats { border: 0; border-radius: 26px; padding: 0; width: min(420px, calc(100vw - 24px)); box-shadow: 0 24px 60px rgb(15 39 68 / 0.35); }
+.congrats::backdrop { background: rgb(15 39 68 / 0.6); }
+.congrats-body { padding: 28px 24px; text-align: center; }
+.congrats-body h2 { font-size: 1.5rem; margin: 10px 0 0; }
+.congrats-badge { display: inline-block; padding: 2px 10px; border-radius: 999px; background: #0f2744; color: #fff; font: 900 0.72rem system-ui; letter-spacing: 0.08em; }
+.congrats-perks { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 14px 0 0; padding: 0; }
+.congrats-perks li { padding: 5px 14px; border-radius: 999px; background: #fde3df; font-size: 0.88rem; font-weight: 800; }
+.congrats-body button { margin-top: 20px; padding: 10px 22px; border: 0; border-radius: 999px; background: #0f2744; color: #fff; font: 800 1rem system-ui; cursor: pointer; }

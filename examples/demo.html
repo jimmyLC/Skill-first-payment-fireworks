@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First-payment fireworks demo</title>
+<link rel="stylesheet" href="dialog.css">
+<style>body { font: 16px system-ui; padding: 32px; } button.demo { padding: 10px 18px; font: 700 1rem system-ui; }</style>
+</head>
+<body>
+<h1>First-payment fireworks</h1>
+<p>Serve this folder over HTTP (ES modules do not load from file://), e.g. <code>npx serve .</code> from the repo root, then open <code>/examples/demo.html</code>.</p>
+<p><button class="demo" id="plain">Fireworks only</button> <button class="demo" id="full">Fireworks + dialog</button></p>
+<p>Or open <a href="demo.html?pay=return">demo.html?pay=return</a> to run the real return-from-checkout flow (the fake "backend" below reports active after ~3 seconds).</p>
+<dialog id="pro-dlg" class="congrats">
+  <div class="congrats-body">
+    <span class="congrats-badge">PRO</span>
+    <h2>恭喜升級 Pro！</h2>
+    <p>謝謝你的支持，以下 Pro 權益已經開通：</p>
+    <ul class="congrats-perks">
+      <li>Mory AI 小幫手</li>
+      <li>無限次更換目標網址</li>
+      <li>無限個專案</li>
+    </ul>
+    <button type="button" id="pro-dlg-close">開始使用</button>
+  </div>
+</dialog>
+
+<script type="module">
+import { fireworks } from '../src/fireworks.js';
+import { celebrateFirstPayment } from '../src/celebrate.js';
+
+const dialog = document.getElementById('pro-dlg');
+document.getElementById('pro-dlg-close').addEventListener('click', () => dialog.close());
+document.getElementById('plain').addEventListener('click', () => fireworks());
+document.getElementById('full').addEventListener('click', () => { dialog.showModal(); fireworks({ host: dialog }); });
+
+const readyAt = Date.now() + 3000; // stands in for your backend finishing the webhook
+celebrateFirstPayment({ dialog, isActive: async () => Date.now() > readyAt, onPending: () => console.log('waiting for the server...') });
+</script>
+</body>
+</html>
